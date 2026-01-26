@@ -15,34 +15,15 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-
-  
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    
     steps:
-          
-    - name: Set up JDK 17
-      uses: actions/setup-java@v4
-      with:
-        java-version: '17'
-        distribution: 'temurin'
-        cache: maven
-        
-    - name: Checkout
-      uses: actions/checkout@v4
-      with:
-          repository: olegz/test-one
-          #token: ${{ secrets.MY_TOKEN }}
-          path: main
-          run: mvn clean package
-    
-    
-      
+      - name: INIT WORKFLOW - Dispatch init event to REMOTE repository
+        if: github.event.action != 'Formula Workflow Response'
+        run: |
+          curl -X POST https://api.github.com/repos/olegz/test-one/dispatches \
+          -H 'Accept: application/vnd.github.everest-preview+json' \
+          -u ${{ secrets.ACCESS_TOKEN }} \
+          --data '{"event_type": "Start Formula Workflow", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
 
-    
    
