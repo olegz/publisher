@@ -28,7 +28,7 @@ jobs:
     - uses: actions/checkout@v4
       with:
           repository: olegz/test-one
-          token: ${{ secrets.GH_PAT }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           path: main
     - name: Set up JDK 17
       uses: actions/setup-java@v4
