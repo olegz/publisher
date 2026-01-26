@@ -1,6 +1,6 @@
 name: Application One
 run-name: SDLC for Application One 🚀
-on: [push]
+on: 
   workflow_dispatch:
 jobs:
   build:
