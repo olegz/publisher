@@ -18,7 +18,6 @@ jobs:
           repo: test-one
           github_token: ${{ secrets.WORKFLOW_TOKEN }} 
           workflow_file_name: maven.yml
-      - name: Deploy Web App
+      - name: Next Step
         run: |
-          echo "Deploy Web App"
-          sleep 10s
+          echo "Running nexet step"
