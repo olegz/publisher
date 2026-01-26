@@ -1,0 +1,15 @@
+name: Application One
+run-name: SDLC for Application One 🚀
+on: [push]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Triggered by ${{ github.actor }} with ${{ github.event_name }} event, status is ${{ job.status }}."
+  step1:
+    needs: build
+    uses: olegz/.github/workflows/maven.yaml@main
+    with:
+      run-name: "Maven build of test-one" 
+ 
