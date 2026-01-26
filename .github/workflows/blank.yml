@@ -16,7 +16,7 @@ jobs:
         with:
           owner: olegz
           repo: test-one
-          github_token: ${{ secrets.G_ACCESS_TOKEN }}
+          github_token: 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
           workflow_file_name: blank.yml
       - name: Deploy Web App
         run: |
