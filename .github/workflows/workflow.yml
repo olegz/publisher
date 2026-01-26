@@ -9,7 +9,7 @@ jobs:
       - run: echo "Triggered by ${{ github.actor }} with ${{ github.event_name }} event, status is ${{ job.status }}."
   step1:
     needs: build
-    uses: olegz/test-one/.github/workflows/maven.yaml@main
+    uses: olegz/test-one/.github/workflows/maven.yml@main
     with:
       run-name: "Maven build of test-one" 
  
