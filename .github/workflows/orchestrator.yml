@@ -17,8 +17,6 @@ jobs:
           owner: olegz
           repo: test-one
           github_token: ${{ secrets.WORKFLOW_TOKEN }} 
-          #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
-          
           workflow_file_name: maven.yml
       - name: Deploy Web App
         run: |
