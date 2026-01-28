@@ -16,14 +16,14 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: Dispatch to test-one
-        run: |
-            curl -H "Accept: application/vnd.github.everest-preview+json" \
-            -H "Authorization: token ${{ secrets.WORKFLOW_TOKEN }}" \
-            --request POST \
-            --data '{"event_type": "some_event", "client_payload": { "foo": "bar" }}' https://api.github.com/repos/${{ matrix.repo }}/dispatches
+        #run: |
+        #    curl -H "Accept: application/vnd.github.everest-preview+json" \
+        #    -H "Authorization: token ${{ secrets.WORKFLOW_TOKEN }}" \
+        #    --request POST \
+         #   --data '{"event_type": "some_event", "client_payload": { "foo": "bar" }}' https://api.github.com/repos/${{ matrix.repo }}/dispatches
       - name: Dispatch to test-two
         run: |
             curl -H "Accept: application/vnd.github.everest-preview+json" \
             -H "Authorization: token ${{ secrets.WORKFLOW_TOKEN }}" \
             --request POST \
-            --data '{"event_type": "some_event", "client_payload": { "foo": "bar" }}' https://api.github.com/repos/test-two/dispatches
+            --data '{"event_type": "some_event", "client_payload": { "foo": "bar" }}' https://api.github.com/repos/olegz/test-two/dispatches
