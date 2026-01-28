@@ -7,9 +7,12 @@ jobs:
   receiver:
       runs-on: ubuntu-latest
       steps:
-        - name: A event received 1
+        - name: Dispatch to test-one
           run: |
-            echo "Event received1" 
+              curl -H "Accept: application/vnd.github.everest-preview+json" \
+              -H "Authorization: token ${{ secrets.RELEASE_TOKEN }}" \
+              --request POST \
+              --data '{"event_type": "spring-cloud-function", "client_payload": { "foo": "bar" }}' https://api.github.com/repos/olegz/test-one/dispatches
         - name: A event received 2
           run: |
             echo "Event received2" 
