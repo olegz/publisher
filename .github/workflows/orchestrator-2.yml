@@ -23,7 +23,7 @@ jobs:
               --request POST \
               --data '{"event_type": "some_event", "client_payload": { "foo": "bar" }}' https://api.github.com/repos/${{ matrix.repo }}/dispatches
      
-  job1:
+  job2:
     #needs: spring-cloud-function
       # dispatch:
       #   name: Dispatch
