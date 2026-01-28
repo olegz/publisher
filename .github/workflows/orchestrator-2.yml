@@ -4,23 +4,22 @@ on:
     branches: [main]
   workflow_dispatch: 
 jobs:
-  job1:
-    name: TEST_ONE
-      # dispatch:
-      #   name: Dispatch
-        #env:
-          #PACKAGES_TO_UPGRADE: ${{ needs.run_publish.outputs.packages }}
-        runs-on: ubuntu-latest
-        strategy:  
-          matrix:
-            repo: ['olegz/test-one']
-            #repo: ['olegz/test-one', 'our-company/repository-C']
-        timeout-minutes: 5
-        steps:
-          - name: Dispatch to test-one
-            run: |
-                curl -H "Accept: application/vnd.github.everest-preview+json" \
-                -H "Authorization: token ${{ secrets.WORKFLOW_TOKEN }}" \
-                --request POST \
-                --data '{"event_type": "some_event", "client_payload": { "foo": "bar" }}' https://api.github.com/repos/${{ matrix.repo }}/dispatches
+  spring-cloud-function:
+    # dispatch:
+    #   name: Dispatch
+      #env:
+        #PACKAGES_TO_UPGRADE: ${{ needs.run_publish.outputs.packages }}
+      runs-on: ubuntu-latest
+      strategy:  
+        matrix:
+          repo: ['olegz/test-one']
+          #repo: ['olegz/test-one', 'our-company/repository-C']
+      timeout-minutes: 5
+      steps:
+        - name: Dispatch to test-one
+          run: |
+              curl -H "Accept: application/vnd.github.everest-preview+json" \
+              -H "Authorization: token ${{ secrets.WORKFLOW_TOKEN }}" \
+              --request POST \
+              --data '{"event_type": "some_event", "client_payload": { "foo": "bar" }}' https://api.github.com/repos/${{ matrix.repo }}/dispatches
      
