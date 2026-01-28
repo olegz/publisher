@@ -17,13 +17,8 @@ jobs:
       timeout-minutes: 5
       steps:
         - name: Dispatch to test-one
-        with:
-          owner: olegz
-          repo: test-one
-          github_token: ${{ secrets.WORKFLOW_TOKEN }} 
-          workflow_file_name: maven.yml
-          #run: |
-          #    curl -H "Accept: application/vnd.github.everest-preview+json" \
-           #   -H "Authorization: token ${{ secrets.WORKFLOW_TOKEN }}" \
-          #    --request POST \
-          #    --data '{"event_type": "some_event", "client_payload": { "foo": "bar" }}' https://api.github.com/repos/${{ matrix.repo }}/dispatches
+          run: |
+              curl -H "Accept: application/vnd.github.everest-preview+json" \
+              -H "Authorization: token ${{ secrets.WORKFLOW_TOKEN }}" \
+              --request POST \
+              --data '{"event_type": "some_event", "client_payload": { "foo": "bar" }}' https://api.github.com/repos/${{ matrix.repo }}/dispatches
