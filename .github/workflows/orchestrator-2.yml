@@ -11,13 +11,19 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        repo: ['olegz/test-one']
+        repo: ['c']
         #repo: ['olegz/test-one', 'our-company/repository-C']
     timeout-minutes: 5
     steps:
-      - name: Dispatch to workflows
+      - name: Dispatch to test-one
         run: |
             curl -H "Accept: application/vnd.github.everest-preview+json" \
             -H "Authorization: token ${{ secrets.WORKFLOW_TOKEN }}" \
             --request POST \
             --data '{"event_type": "some_event", "client_payload": { "foo": "bar" }}' https://api.github.com/repos/${{ matrix.repo }}/dispatches
+      - name: Dispatch to test-two
+        run: |
+            curl -H "Accept: application/vnd.github.everest-preview+json" \
+            -H "Authorization: token ${{ secrets.WORKFLOW_TOKEN }}" \
+            --request POST \
+            --data '{"event_type": "some_event", "client_payload": { "foo": "bar" }}' https://api.github.com/repos/test-two/dispatches
