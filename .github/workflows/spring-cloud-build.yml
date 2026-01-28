@@ -18,7 +18,7 @@ jobs:
         - name: A event received 2
           
           run: |
-            sleep 20s
+            sleep 40s
             echo "Event received1 ${{ github.event_name == 'spring-cloud-function' }}" 
             echo "Event received2 ${{ github.event_type == 'spring-cloud-function' }}" 
             echo "Event received3 ${{ github.event_type == 'spring-cloud-stream' }}" 
