@@ -19,5 +19,7 @@ jobs:
           
           run: |
             sleep 20s
-            echo "Event received2 ${{ github.event_name == 'push' }}" 
-            echo "Event received2 ${{ github.event_type == 'push' }}" 
+            echo "Event received1 ${{ github.event_name == 'spring-cloud-function' }}" 
+            echo "Event received2 ${{ github.event_type == 'spring-cloud-function' }}" 
+            echo "Event received3 ${{ github.event_type == 'spring-cloud-stream' }}" 
+            echo "Event received4 ${{ github.event_type == 'spring-cloud-stream' }}" 
