@@ -1,5 +1,5 @@
 
-name: spring-cloud-stream
+name: Spring Cloud Stream
 on:
   push:
     branches: [main]
