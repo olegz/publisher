@@ -13,7 +13,7 @@ jobs:
               -H "Authorization: token ${{ secrets.RELEASE_TOKEN }}" \
               --request POST \
               --data '{"event_type": "spring-cloud-function", "client_payload": { "foo": "bar" }}' https://api.github.com/repos/olegz/test-one/dispatches
-            sleep: 20s
+        
         - name: A event received 2
           
           run: |
