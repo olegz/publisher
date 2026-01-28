@@ -1,4 +1,4 @@
-name: Dispatcher
+name: Spring Cloud Build
 on:
   push:
     branches: [main]
