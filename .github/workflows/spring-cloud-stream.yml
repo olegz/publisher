@@ -4,8 +4,8 @@ on:
   push:
     branches: [main]
   workflow_dispatch: 
-  #repository_dispatch:
-    #types: [spring-cloud-stream]
+  repository_dispatch:
+    types: [spring-cloud-stream]
 jobs:
   job1:
     # dispatch:
