@@ -6,12 +6,12 @@ on:
 jobs:
   job1:
     name: TEST_ONE
-      dispatch:
-        name: Dispatch
+      # dispatch:
+      #   name: Dispatch
         #env:
           #PACKAGES_TO_UPGRADE: ${{ needs.run_publish.outputs.packages }}
         runs-on: ubuntu-latest
-        strategy:
+        strategy:  
           matrix:
             repo: ['olegz/test-one']
             #repo: ['olegz/test-one', 'our-company/repository-C']
