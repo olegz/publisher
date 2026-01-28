@@ -6,6 +6,20 @@ jobs:
     name: Checkout and build 
     runs-on: ubuntu-latest
     steps:
+    ### TEST ONE
+    - uses: actions/checkout@v4
+      with:
+        repository: olegz/test-one
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: maven
+    - name: Build with Maven test-two
+      run: mvn -B package --file pom.xml
+      
+    ### TEST TWO
     - uses: actions/checkout@v4
       with:
         repository: olegz/test-two
