@@ -22,6 +22,6 @@ jobs:
         - name: Dispatch to test-one
           run: |
               curl -H "Accept: application/vnd.github.everest-preview+json" \
-              -H "Authorization: token ${{ secrets.WORKFLOW_TOKEN }}" \
+              -H "Authorization: token ${{ secrets.RELEASE_TOKEN }}" \
               --request POST \
               --data '{"event_type": "blah", "client_payload": { "foo": "bar" }}' https://api.github.com/repos/${{ matrix.repo }}/dispatches
