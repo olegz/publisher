@@ -11,6 +11,12 @@ jobs:
         run: |
           echo "Event received '${{ github.event.event_type }}'"
   job1:
+    receiver:
+    runs-on: ubuntu-latest
+    steps:
+      - name: A event received
+        run: |
+          echo "Event received '${{ github.event.event_type }}'"
     # dispatch:
     #   name: Dispatch
       #env:
@@ -21,18 +27,11 @@ jobs:
           repo: ['olegz/test-one']
           #repo: ['olegz/test-one', 'our-company/repository-C']
       timeout-minutes: 5
-      steps:
-      
+      steps: 
         - name: Dispatch to test-one
           run: |
               curl -H "Accept: application/vnd.github.everest-preview+json" \
               -H "Authorization: token ${{ secrets.RELEASE_TOKEN }}" \
               --request POST \
               --data '{"event_type": "spring-cloud-function", "client_payload": { "foo": "bar" }}' https://api.github.com/repos/${{ matrix.repo }}/dispatches
-        - name: Dispatch to test-two
-          run: |
-              curl -H "Accept: application/vnd.github.everest-preview+json" \
-              -H "Authorization: token ${{ secrets.RELEASE_TOKEN }}" \
-              --request POST \
-              --data '{"event_type": "spring-cloud-stream", "client_payload": { "foo": "bar" }}' https://api.github.com/repos/olegz/test-two/dispatches
-          if: ${{ github.event_type == 'spring-cloud-stream' }}
+       #if: ${{ github.event_type == 'spring-cloud-stream' }}
