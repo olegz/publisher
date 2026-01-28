@@ -22,23 +22,23 @@ jobs:
               -H "Authorization: token ${{ secrets.RELEASE_TOKEN }}" \
               --request POST \
               --data '{"event_type": "spring-cloud-function", "client_payload": { "foo": "bar" }}' https://api.github.com/repos/${{ matrix.repo }}/dispatches
-   spring-cloud-stream:
-    # dispatch:
-    #   name: Dispatch
-      #env:
-        #PACKAGES_TO_UPGRADE: ${{ needs.run_publish.outputs.packages }}
-      runs-on: ubuntu-latest
-      strategy:  
-        matrix:
-          repo: ['olegz/test-two']
-          #repo: ['olegz/test-one', 'our-company/repository-C']
-      timeout-minutes: 5
-      steps: 
-        - name: Dispatch to test-one
-          run: |
-              curl -H "Accept: application/vnd.github.everest-preview+json" \
-              -H "Authorization: token ${{ secrets.RELEASE_TOKEN }}" \
-              --request POST \
-              --data '{"event_type": "spring-cloud-stream", "client_payload": { "foo": "bar" }}' https://api.github.com/repos/olegz/test-two/dispatches 
+ spring-cloud-stream:
+  # dispatch:
+  #   name: Dispatch
+    #env:
+      #PACKAGES_TO_UPGRADE: ${{ needs.run_publish.outputs.packages }}
+    runs-on: ubuntu-latest
+    strategy:  
+      matrix:
+        repo: ['olegz/test-two']
+        #repo: ['olegz/test-one', 'our-company/repository-C']
+    timeout-minutes: 5
+    steps: 
+      - name: Dispatch to test-one
+        run: |
+            curl -H "Accept: application/vnd.github.everest-preview+json" \
+            -H "Authorization: token ${{ secrets.RELEASE_TOKEN }}" \
+            --request POST \
+            --data '{"event_type": "spring-cloud-stream", "client_payload": { "foo": "bar" }}' https://api.github.com/repos/olegz/test-two/dispatches 
        
        #if: ${{ github.event_type == 'spring-cloud-stream' }}
