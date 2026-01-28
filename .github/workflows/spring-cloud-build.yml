@@ -36,4 +36,4 @@ jobs:
               -H "Authorization: token ${{ secrets.RELEASE_TOKEN }}" \
               --request POST \
               --data '{"event_type": "spring-cloud-stream", "client_payload": { "foo": "bar" }}' https://api.github.com/repos/${{ matrix.repo }}/dispatches
-          if: ${{ github.event_name == 'push' }}
+          if: ${{ github.event_name == 'spring-cloud-stream' }}
