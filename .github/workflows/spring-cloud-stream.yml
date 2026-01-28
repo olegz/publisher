@@ -1,5 +1,5 @@
 
-name: Start Build
+name: Spring Cloud Stream
 on:
   push:
     branches: [main]
