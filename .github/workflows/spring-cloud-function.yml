@@ -1,5 +1,5 @@
 
-name: Start Build
+name: Spring Cloud Function
 on:
   push:
     branches: [main]
