@@ -4,6 +4,12 @@ on:
     branches: [main]
   workflow_dispatch: 
 jobs:
+  receiver:
+    runs-on: ubuntu-latest
+    steps:
+      - name: A event received
+        run: |
+          echo "Event received '${{ github.event.event_type }}'"
   job1:
     # dispatch:
     #   name: Dispatch
@@ -16,6 +22,7 @@ jobs:
           #repo: ['olegz/test-one', 'our-company/repository-C']
       timeout-minutes: 5
       steps:
+      
         - name: Dispatch to test-one
           run: |
               curl -H "Accept: application/vnd.github.everest-preview+json" \
