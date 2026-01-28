@@ -19,4 +19,5 @@ jobs:
           
           run: |
             sleep 20s
-            echo "Event received2 '${{ github.event.event_type }}'" 
+            echo "Event received2 ${{ github.event_name == 'push' }}" 
+            echo "Event received2 ${{ github.event_type == 'push' }}" 
