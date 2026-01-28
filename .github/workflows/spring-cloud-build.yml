@@ -22,18 +22,10 @@ jobs:
               -H "Authorization: token ${{ secrets.RELEASE_TOKEN }}" \
               --request POST \
               --data '{"event_type": "spring-cloud-function", "client_payload": { "foo": "bar" }}' https://api.github.com/repos/${{ matrix.repo }}/dispatches
-  job2:
-      runs-on: ubuntu-latest
-      strategy:  
-        matrix:
-          repo: ['olegz/test-two']
-          #repo: ['olegz/test-two', 'our-company/repository-C']
-      timeout-minutes: 5
-      steps:
-        - name: Dispatch to test-two
+        - name: Dispatch to test-one
           run: |
               curl -H "Accept: application/vnd.github.everest-preview+json" \
               -H "Authorization: token ${{ secrets.RELEASE_TOKEN }}" \
               --request POST \
-              --data '{"event_type": "spring-cloud-stream", "client_payload": { "foo": "bar" }}' https://api.github.com/repos/${{ matrix.repo }}/dispatches
+              --data '{"event_type": "spring-cloud-stream", "client_payload": { "foo": "bar" }}' https://api.github.com/repos/olegz/test-two/dispatches
           if: ${{ github.event_name == 'spring-cloud-stream' }}
