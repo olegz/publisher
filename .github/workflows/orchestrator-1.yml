@@ -1,4 +1,4 @@
-name: Orchestrate
+name: Orchestrate with wait
 on:
   push:
     branches:
@@ -16,7 +16,16 @@ jobs:
         with:
           owner: olegz
           repo: test-one
-          github_token: ${{ secrets.WORKFLOW_TOKEN }} 
+          github_token: ${{ secrets.RELEASE_TOKEN }} 
+          workflow_file_name: maven.yml
+      - name: Build test-two
+        run: |
+          echo "Build test-two"
+      - uses: convictional/trigger-workflow-and-wait@v1.3.0
+        with:
+          owner: olegz
+          repo: test-two
+          github_token: ${{ secrets.RELEASE_TOKEN }} 
           workflow_file_name: maven.yml
       - name: Next Step
         run: |
