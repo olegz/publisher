@@ -21,7 +21,7 @@ jobs:
               curl -H "Accept: application/vnd.github.everest-preview+json" \
               -H "Authorization: token ${{ secrets.WORKFLOW_TOKEN }}" \
               --request POST \
-              --data '{"event_type": "some_event", "client_payload": { "foo": "bar" }}' https://api.github.com/repos/${{ matrix.repo }}/dispatches
+              --data '{"event_type": "spring-cloud-function", "client_payload": { "foo": "bar" }}' https://api.github.com/repos/${{ matrix.repo }}/dispatches
   job2:
       runs-on: ubuntu-latest
       strategy:  
@@ -35,5 +35,5 @@ jobs:
               curl -H "Accept: application/vnd.github.everest-preview+json" \
               -H "Authorization: token ${{ secrets.WORKFLOW_TOKEN }}" \
               --request POST \
-              --data '{"event_type": "some_event", "client_payload": { "foo": "bar" }}' https://api.github.com/repos/${{ matrix.repo }}/dispatches
+              --data '{"event_type": "spring-cloud-stream", "client_payload": { "foo": "bar" }}' https://api.github.com/repos/${{ matrix.repo }}/dispatches
           if: ${{ github.event_name == 'push' }}
