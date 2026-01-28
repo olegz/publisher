@@ -15,7 +15,7 @@ jobs:
       runs-on: ubuntu-latest
       strategy:  
         matrix:
-          repo: ['olegz/test-one']
+          repo: ['olegz/test-two']
           #repo: ['olegz/test-one', 'our-company/repository-C']
       timeout-minutes: 5
       steps:
@@ -24,5 +24,5 @@ jobs:
               curl -H "Accept: application/vnd.github.everest-preview+json" \
               -H "Authorization: token ${{ secrets.RELEASE_TOKEN }}" \
               --request POST \
-              --data '{"event_type": "next", "client_payload": { "foo": "bar" }}' https://api.github.com/repos/${{ matrix.repo }}/dispatches
+              --data '{"event_type": "spring-cloud-stream", "client_payload": { "foo": "bar" }}' https://api.github.com/repos/${{ matrix.repo }}/dispatches
       
