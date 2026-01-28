@@ -4,7 +4,7 @@ on:
     branches: [main]
   workflow_dispatch: 
 jobs:
-  spring-cloud-function:
+  job1:
     # dispatch:
     #   name: Dispatch
       #env:
@@ -23,8 +23,8 @@ jobs:
               --request POST \
               --data '{"event_type": "some_event", "client_payload": { "foo": "bar" }}' https://api.github.com/repos/${{ matrix.repo }}/dispatches
      
-  spring-cloud-stream:
-    needs: spring-cloud-function
+  job1:
+    #needs: spring-cloud-function
       # dispatch:
       #   name: Dispatch
         #env:
