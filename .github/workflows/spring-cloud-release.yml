@@ -19,14 +19,14 @@ jobs:
   #BUILD
   spring-cloud-build:
     runs-on: ubuntu-latest
+    #environment: ${{ vars.RELEASE}}
     steps:
       - uses: actions/checkout@v4
         with:
           repository: spring-cloud/spring-cloud-build
       - name: Dump GitHub RELEASE
-        env:
-          RELEASE: ${{ toJson(vars.FOO) }}
-        run: echo $RELEASE
+    
+        run: echo FOO: ${{ vars.FOO}}
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
