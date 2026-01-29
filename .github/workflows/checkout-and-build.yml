@@ -5,10 +5,19 @@ jobs:
   spring-cloud-build:
     runs-on: ubuntu-latest
     steps:
-      - name: spring-cloud-build
-        run: echo Executing s-c-build
+      - uses: actions/checkout@v4
+        with:
+          repository: spring-cloud/spring-cloud-build
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
       - name: Build with Maven test-one
         run: sleep 10s
+      - name: Build with Maven test-one
+        run: mvn -B package --file pom.xml
   spring-cloud-function:
     needs: spring-cloud-build
     runs-on: ubuntu-latest
