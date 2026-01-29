@@ -5,17 +5,28 @@ jobs:
   s-c-function:
     runs-on: ubuntu-latest
     steps:
-      - name: Step 1
-        run: echo step1
-      - name: Step 1 sleep
-        run: sleep 15s
-      
+      - uses: actions/checkout@v4
+        with:
+          repository: olegz/test-one
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+      - name: Build with Maven test-one
+        run: mvn -B package --file pom.xml
   s-c-stream:
     runs-on: ubuntu-latest
     steps:
-      - name: Step 2
-        run: echo step2
-      - name: Step 2 sleep
-        run: sleep 15s
-              
-         
+      - uses: actions/checkout@v4
+        with:
+          repository: olegz/test-two
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+      - name: Build with Maven test-one
+        run: mvn -B package --file pom.xml
