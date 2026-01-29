@@ -5,7 +5,7 @@ on:
       spring-boot-version:
         description: 'Spring Boot Version'     
         required: true
-        default: 4.0.0
+        default: ${{env.FOO_VAR}}
       spring-cloud-build-version:
         description: 'Spring Cloud Build Version'     
         required: true
