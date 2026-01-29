@@ -25,8 +25,7 @@ jobs:
         with:
           repository: spring-cloud/spring-cloud-build
       - name: Dump GitHub RELEASE
-    
-        run: echo FOO: 
+        run: echo blah
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
