@@ -32,6 +32,7 @@ jobs:
       - name: Maven build of spring-cloud-build
         run: mvn -B package --file pom.xml
   spring-cloud-stream:
+  
     needs: spring-cloud-function
     uses: olegz/publisher/.github/workflows/spring-cloud-stream-build.yml@main
   spring-cloud-commons:
