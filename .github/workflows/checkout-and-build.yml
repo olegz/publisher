@@ -2,33 +2,18 @@ name: Checkout and build
 on:
   workflow_dispatch:
 jobs:
-  s-c-function:
+  spring-cloud-build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        with:
-          repository: olegz/test-one
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
-        with:
-          java-version: '17'
-          distribution: 'temurin'
-          cache: maven
+      - name: spring-cloud-build
+        run: echo Executing s-c-build
       - name: Build with Maven test-one
         run: sleep 10s
-      - name: Build with Maven test-one
-        run: mvn -B package --file pom.xml
-  s-c-stream:
+  spring-cloud-function:
+    needs: spring-cloud-build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        with:
-          repository: olegz/test-two
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
-        with:
-          java-version: '17'
-          distribution: 'temurin'
-          cache: maven
+      - name: spring-cloud-function
+        run: echo Executing spring-cloud-function
       - name: Build with Maven test-one
-        run: mvn -B package --file pom.xml
+        run: sleep 10s
