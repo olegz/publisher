@@ -35,7 +35,7 @@ jobs:
     needs: spring-cloud-function
     runs-on: ubuntu-latest
     steps:
-      - uses: olegz/publisher/spring-cloud-stream-build@main
+      - uses: olegz/publisher/.github/workflows/spring-cloud-stream-build.yml@main
   spring-cloud-commons:
     needs: spring-cloud-build
     runs-on: ubuntu-latest
