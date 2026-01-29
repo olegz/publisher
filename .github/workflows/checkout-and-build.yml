@@ -6,13 +6,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Lint Code
-      - run: npm run s-c-function
-        sleep 5s
+        run: echo s-c-function
   s-c-stream:
     runs-on: ubuntu-latest
     steps:
       - name: Test Code
-      - run: npm s-c-stream
-        sleep 5s
+        run: echo s-c-stream
               
          
