@@ -2,6 +2,7 @@ name: Checkout and build
 on:
   workflow_dispatch:
 jobs:
+  #BUILD
   spring-cloud-build:
     runs-on: ubuntu-latest
     steps:
@@ -16,6 +17,7 @@ jobs:
           cache: maven
       - name: Maven build of spring-cloud-build
         run: mvn -B package --file pom.xml
+  #FUNCTION
   spring-cloud-function:
     needs: spring-cloud-build
     runs-on: ubuntu-latest
@@ -31,10 +33,11 @@ jobs:
           cache: maven
       - name: Maven build of spring-cloud-build
         run: mvn -B package --file pom.xml
+  #STREAM      
   spring-cloud-stream:
-  
     needs: spring-cloud-function
     uses: olegz/publisher/.github/workflows/spring-cloud-stream-build.yml@main
+  #COMMONS
   spring-cloud-commons:
     needs: spring-cloud-build
     runs-on: ubuntu-latest
@@ -50,6 +53,7 @@ jobs:
           cache: maven
       - name: Maven build of spring-cloud-build
         run: mvn -B package --file pom.xml
+  #TASK
   spring-cloud-task:
     needs: [spring-cloud-build, spring-cloud-function, spring-cloud-commons]
     runs-on: ubuntu-latest
