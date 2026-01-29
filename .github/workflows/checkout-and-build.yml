@@ -4,7 +4,8 @@ on:
 jobs:
   build:
     name: Checkout and build 
-    concurrency: foo
+    concurrency: 
+      group: foo
     runs-on: ubuntu-latest
     steps:
     ### TEST ONE
