@@ -52,7 +52,7 @@ jobs:
       - name: Maven build of spring-cloud-build
         run: mvn -B package --file pom.xml
   spring-cloud-task:
-    needs: [spring-cloud-build, spring-cloud-function]
+    needs: [spring-cloud-build, spring-cloud-function, spring-cloud-commons]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
