@@ -5,7 +5,7 @@ on:
       spring-boot-version:
         description: 'Spring Boot Version'     
         required: true
-        default: ${{env.FOO_VAR}}
+        default: 4.0.0
       spring-cloud-build-version:
         description: 'Spring Cloud Build Version'     
         required: true
@@ -23,6 +23,8 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: spring-cloud/spring-cloud-build
+      - name: Print variables
+        run: echo RELEASE: $RELEASE
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
