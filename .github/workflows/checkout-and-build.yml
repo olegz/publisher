@@ -2,14 +2,17 @@ name: Checkout and build
 on:
   workflow_dispatch:
 jobs:
-  build:
-    name: Checkout and build 
+  s-c-function:
     runs-on: ubuntu-latest
     steps:
-      ### TEST ONE
-      - uses: actions/checkout@v4
-        with:
-          steps:
-            - run: echo Step1
+      - name: Lint Code
+      - run: npm run s-c-function
+        sleep 5s
+  s-c-stream:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test Code
+      - run: npm s-c-stream
+        sleep 5s
               
          
