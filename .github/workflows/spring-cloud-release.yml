@@ -33,9 +33,7 @@ jobs:
         run: mvn -B package --file pom.xml
   spring-cloud-stream:
     needs: spring-cloud-function
-    runs-on: ubuntu-latest
-    steps:
-      - uses: olegz/publisher/.github/workflows/spring-cloud-stream-build.yml@main
+    uses: olegz/publisher/.github/workflows/spring-cloud-stream-build.yml@main
   spring-cloud-commons:
     needs: spring-cloud-build
     runs-on: ubuntu-latest
