@@ -2,12 +2,19 @@ name: Checkout and build
 on:
   workflow_dispatch:
     inputs:
-      logLevel:
-        description: 'Log level'     
+      spring-boot-version:
+        description: 'Spring Boot Version'     
         required: true
-        default: 'warning'
-      tags:
-        description: 'Test scenario tags' 
+        default: 4.0.0
+      spring-cloud-build-version:
+        description: 'Spring Cloud Build Version'     
+        required: true
+        default: 6.0.0
+      your-name:
+        description: 'Your name'     
+        required: true
+        default: Unknown
+      
 jobs:
   #BUILD
   spring-cloud-build:
