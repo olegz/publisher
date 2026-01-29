@@ -25,7 +25,7 @@ jobs:
           repository: spring-cloud/spring-cloud-build
       - name: Dump GitHub RELEASE
         env:
-          RELEASE: ${{ toJson(vars) }}
+          RELEASE: ${{ toJson(vars.FOO) }}
         run: echo $RELEASE
       - name: Set up JDK 17
         uses: actions/setup-java@v4
