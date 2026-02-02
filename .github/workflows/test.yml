@@ -10,4 +10,13 @@ jobs:
       - name: A event received
         run: |
           echo "payload Foo 
+
+
+  build:
+    runs-on: ubuntu-latest
+    env: ${{ fromJson(test.json) }} # job-level env
+
+    steps:
+    - name: Print environment variable
+      run: echo $ABC
   
