@@ -24,7 +24,7 @@ jobs:
     steps:
       - name: Show the value
         run: |
-          echo $BOOT_VERSION
+          echo $CLOUD_VERSION
     #strategy:
     #  matrix: ${{ fromJson(needs.configure.outputs.ENVSET) }}
     #steps:
