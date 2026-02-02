@@ -10,7 +10,7 @@ jobs:
     steps:
       - run: |
           echo 'PACKAGE_JSON<<EOF' >> $GITHUB_ENV
-          cat test.json >> $GITHUB_ENV
+          cat olegz/publisher/.github/workflows/test.json >> $GITHUB_ENV
           echo 'EOF' >> $GITHUB_ENV
       - run: |
           echo '${{ fromJson(env.PACKAGE_JSON).version }}'
