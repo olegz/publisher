@@ -3,7 +3,7 @@ name: Test ACTION
 on:
   workflow_dispatch:
 
-env: {"CLOUD_VAR": ""}
+env: WORKFLOW_VARIABLE: "value"
 
 jobs:
   configure:
@@ -17,7 +17,7 @@ jobs:
        id: set-matrix
        run: |
          echo "MY_OBJECT=$(jq -c . < ./cloud.json)" >> $GITHUB_OUTPUT
-         export "CLOUD_VAR=oleg
+         export WORKFLOW_VARIABLE=oleg
        #run: |
        #  echo 'MY_OBJECT={ "BOOT_VERSION": "4.0.0", "CLOUD_VERSION": "4.5.4" }' >> $GITHUB_OUTPUT
   print_env:
