@@ -14,3 +14,12 @@ jobs:
        run: |
         echo "MY_VAR=Hello, World!" >> $GITHUB_ENV
         echo "A_SECOND_VAR=Also Hello, World!" >> $GITHUB_ENV
+  print:
+    runs-on: ubuntu-latest
+    #outputs:
+      #cloud_var: ${{ steps.set-matrix.outputs.cloud_var }}
+    steps:
+     - name: Print environment variables
+       run: |
+        echo ${{ MY_VAR }}
+        
