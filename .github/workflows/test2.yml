@@ -13,9 +13,9 @@ jobs:
       ENVSETTINGS: ${{ steps.setMyEnv.outputs.MY_OBJECT }}
     steps:
      - id: setMyEnv
-       run: echo "MY_OBJECT=$(jq -c . < ./test.json)" >> $GITHUB_OUTPUT
-       #run: |
-       #   echo 'MY_OBJECT={ "A_SECOND_VAR": "Hello", "A_THIRD_VAR": "Hello again" }' >> $GITHUB_OUTPUT
+       #run: echo "MY_OBJECT=$(jq -c . < ./test.json)" >> $GITHUB_OUTPUT
+       run: |
+          echo 'MY_OBJECT={ "boot-version": "4.0.0", "cloud-version": 4.5.4" }' >> $GITHUB_OUTPUT
   print:
     needs: [ configure ]
     runs-on: ubuntu-latest
