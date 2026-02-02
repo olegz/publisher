@@ -3,6 +3,8 @@ name: Test ACTION
 on:
   workflow_dispatch:
 
+env: {"CLOUD_VAR": ""}
+
 jobs:
   configure:
     runs-on: ubuntu-latest
@@ -13,7 +15,9 @@ jobs:
        uses: actions/checkout@v4
      - name: Set matrix data
        id: set-matrix
-       run: echo "MY_OBJECT=$(jq -c . < ./cloud.json)" >> $GITHUB_OUTPUT
+       run: |
+         echo "MY_OBJECT=$(jq -c . < ./cloud.json)" >> $GITHUB_OUTPUT
+         export "CLOUD_VAR=oleg
        #run: |
        #  echo 'MY_OBJECT={ "BOOT_VERSION": "4.0.0", "CLOUD_VERSION": "4.5.4" }' >> $GITHUB_OUTPUT
   print_env:
