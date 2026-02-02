@@ -15,7 +15,7 @@ jobs:
      - id: setMyEnv
        #run: echo "MY_OBJECT=$(jq -c . < ./test.json)" >> $GITHUB_OUTPUT
        run: |
-          echo 'MY_OBJECT={ "BOOT_VERSION": "4.0.0", "CLOUD_VERSION": 4.5.4" }' >> $GITHUB_OUTPUT
+          echo 'MY_OBJECT={ "BOOT_VERSION": "4.0.0", "CLOUD_VERSION": "4.5.4" }' >> $GITHUB_OUTPUT
   print:
     needs: [ configure ]
     runs-on: ubuntu-latest
