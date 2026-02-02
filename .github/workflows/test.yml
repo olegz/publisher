@@ -4,25 +4,26 @@ on:
   workflow_dispatch:
   
 jobs:
-  test:
+  configure:
     runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-      with:
-        path: "./"
+     - name: Checkout to repository
+       uses: actions/checkout@v3
+     - name: Set matrix data
+       id: set-matrix
+       run: echo "matrix=$(jq -c . < ./test.json)" >> $GITHUB_OUTPUT
 
-    - name: get properties
-      id: json_properties
-      uses: ./
-      with: 
-        file_path: 'test.json'
-
-    - run: |
-        echo ${{steps.json_properties.outputs.cloud-version}}
-        echo ${{steps.json_properties.outputs.boot-version}}
-        echo ${{steps.json_properties.outputs.stream-version}}
-        
+  load:
+    runs-on: ubuntu-latest
+    needs: configure
+    strategy:
+      matrix: ${{ fromJson(needs.configure.outputs.matrix) }}
+  print:
+    runs-on: ubuntu-latest
+    needs: load
+    steps:
+     - run: echo "Boot Version:" ${{ matrix.boot-version }}
     
-
 
