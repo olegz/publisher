@@ -21,7 +21,10 @@ jobs:
     #outputs:
       #cloud_var: ${{ steps.set-matrix.outputs.cloud_var }}
     steps:
-     - name: Print environment variables
+     - name: Almost the solution
+       env: ${{ fromJson(steps.setMyEnv.outputs.MY_OBJECT) }}
        run: |
-        echo $MY_VAR
+          # The value is set from the object, so we
+          # should see "Hello" printed here.
+          echo $A_SECOND_VAR
         
