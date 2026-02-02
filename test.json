@@ -1,2 +1,10 @@
-
-{"fname": "oleg", "lname": "zhurakousky"}
+{
+    "include": [
+    {
+        "name": "Mario"
+    },
+    {
+        "name": "Luigi"
+    }
+    ]
+}
