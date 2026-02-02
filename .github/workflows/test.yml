@@ -21,5 +21,5 @@ jobs:
     strategy:
       matrix: ${{ fromJson(needs.configure.outputs.matrix) }}
     steps:
-     - run: echo "Boot Version:" 
+     - run: echo "Boot Version:" ${{ matrix.boot-version }}
     
