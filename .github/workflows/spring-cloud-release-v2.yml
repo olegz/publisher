@@ -2,7 +2,7 @@ name: Spring Cloud Release V2
 
 on:
   workflow_dispatch:
-env:
+env: {}
   
 jobs:
   configure:
