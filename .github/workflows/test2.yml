@@ -11,6 +11,6 @@ jobs:
       #cloud_var: ${{ steps.set-matrix.outputs.cloud_var }}
     steps:
      - name: Set environment variables
-      run: |
+       run: |
         echo "MY_VAR=Hello, World!" >> $GITHUB_ENV
         echo "A_SECOND_VAR=Also Hello, World!" >> $GITHUB_ENV
