@@ -4,25 +4,10 @@ on:
   workflow_dispatch:
   
 jobs:
-  env:
+  build:
     runs-on: ubuntu-latest
-    outputs:
-      env: ${{ steps.import-env.outputs.result }}
+    env: ${{ fromJson(`test.json`) }} # job-level env
 
     steps:
-    - uses: actions/checkout@v2
-
-    - name: Import environment variables from a file
-      id: import-env
-      uses: actions/github-script@v2
-      with:
-        script: |
-          const env = parseEnv(`test.json`);
-          Object.entries(env).forEach(x => core.exportVariable(...x)); // current job-level env
-          return env;
-
     - name: Print environment variable
       run: echo $ABC
-      #env: ${{ fromJson(steps.import-env.outputs.result) }} # step-level env
-
- 
