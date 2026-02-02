@@ -1,0 +1,19 @@
+name: READ FROM JSON
+
+on:
+  workflow_dispatch:
+  
+jobs:
+  myjob:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    outputs:
+      ENVSETTINGS: ${{ steps.setMyEnv.outputs.MY_OBJECT }}
+  myjob2:
+    needs: [ myjob ]
+    runs-on: ubuntu-latest
+    env: ${{ fromJson(needs.myjob.outputs.ENVSETTINGS) }}
+    steps:
+      - name: Show the value
+        run: |
+          echo $cloud-version
