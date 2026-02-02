@@ -19,6 +19,7 @@ jobs:
        id: set-matrix
        run: echo "matrix=$(jq -c . < ./test.json)" >> $GITHUB_OUTPUT
 
+  
   #BUILD
   spring-cloud-build:
     runs-on: ubuntu-latest
