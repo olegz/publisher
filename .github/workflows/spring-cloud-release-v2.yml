@@ -2,18 +2,19 @@ name: Spring Cloud Release V2
 
 on:
   workflow_dispatch:
+env:
   
 jobs:
   configure:
     runs-on: ubuntu-latest
-    outputs:
-      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    #outputs:
+      #matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
      - name: Checkout to repository
        uses: actions/checkout@v3
      - name: Set matrix data
        id: set-matrix
-       run: echo "matrix=$(jq -c . < ./test.json)" >> $GITHUB_OUTPUT
+       run: echo "env=$(jq -c . < ./test.json)" >> $GITHUB_OUTPUT
 
   print_properties:
     runs-on: ubuntu-latest
