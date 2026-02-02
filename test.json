@@ -1,10 +1,13 @@
 {
     "include": [
     {
-        "name": "Mario"
+        "boot-version": 4.0.0
     },
     {
-        "name": "Luigi"
+        "cloud-version": 4.2.9
+    },
+    {
+        "stream-version": 5.2.9
     }
     ]
 }
