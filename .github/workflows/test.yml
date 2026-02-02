@@ -4,17 +4,31 @@ on:
   workflow_dispatch:
   
 jobs:
-  receiver:
+  env:
     runs-on: ubuntu-latest
-    steps:
-      - name: A event received
-        run: |
-          echo "payload Foo 
+    outputs:
+      env: ${{ steps.import-env.outputs.result }}
 
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Import environment variables from a file
+      id: import-env
+      uses: actions/github-script@v2
+      with:
+        script: |
+          const env = parseEnv(`${process.env.GITHUB_WORKSPACE}/dev.env`);
+          Object.entries(env).forEach(x => core.exportVariable(...x)); // current job-level env
+          return env;
+
+    - name: Print environment variable
+      run: echo $ABC
+      env: ${{ fromJson(steps.import-env.outputs.result) }} # step-level env
 
   build:
     runs-on: ubuntu-latest
-    env: ${{ fromJson(test.json) }} # job-level env
+    needs: [env]
+    env: ${{ fromJson(needs.env.outputs.env) }} # job-level env
 
     steps:
     - name: Print environment variable
