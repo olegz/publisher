@@ -5,14 +5,6 @@ on:
   
 jobs:
   myjob1:
-   - id: setMyEnv
-  run: |
-    echo 'MY_OBJECT={ "A_SECOND_VAR": "Hello", "A_THIRD_VAR": "Hello again" }' >> $GITHUB_OUTPUT
-  
-  myjob2:
-    - name: Almost the solution
-    env: ${{ fromJson(steps.setMyEnv.outputs.MY_OBJECT) }}
     run: |
-    # The value is set from the object, so we
-    # should see "Hello" printed here.
-    echo $A_SECOND_VAR
+    echo 'MY_OBJECT={ "A_SECOND_VAR": "Hello", "A_THIRD_VAR": "Hello again" }' >> $GITHUB_OUTPUT
+
