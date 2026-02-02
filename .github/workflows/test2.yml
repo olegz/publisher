@@ -18,7 +18,7 @@ jobs:
   print:
     needs: [ configure ]
     runs-on: ubuntu-latest
-    env: ${{ fromJson(needs.myjob.outputs.ENVSETTINGS) }}
+    env: ${{ fromJson(needs.configure.outputs.ENVSETTINGS) }}
     steps:
       - name: Show the value
         run: |
