@@ -17,7 +17,7 @@ jobs:
        id: set-matrix
        run: |
          echo "MY_OBJECT=$(jq -c . < ./cloud.json)" >> $GITHUB_OUTPUT
-         export WORKFLOW_VARIABLE=oleg
+         $WORKFLOW_VARIABLE: "oleg"
        #run: |
        #  echo 'MY_OBJECT={ "BOOT_VERSION": "4.0.0", "CLOUD_VERSION": "4.5.4" }' >> $GITHUB_OUTPUT
   print_env:
