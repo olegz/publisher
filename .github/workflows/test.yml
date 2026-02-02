@@ -22,4 +22,6 @@ jobs:
       matrix: ${{ fromJson(needs.configure.outputs.matrix) }}
     steps:
      - run: echo "Boot Version:" ${{ matrix.boot-version }}
+     - run: echo "Stream Version:" ${{ matrix.stream-version }}
+     - run: echo "Cloud Version:" ${{ matrix.cloud-version }}
      #- run: echo ${{ matrix.cloud-version }}
