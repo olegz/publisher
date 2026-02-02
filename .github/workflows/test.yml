@@ -12,7 +12,7 @@ jobs:
      - name: Checkout to repository
        uses: actions/checkout@v3
      - name: Set matrix data
-       #id: set-matrix
+       id: set-matrix
        run: echo "matrix=$(jq -c . < ./test.json)" >> $GITHUB_OUTPUT
 
   print_properties:
