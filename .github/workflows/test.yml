@@ -2,7 +2,7 @@ name: Test ACTION
 
 on:
   workflow_dispatch:
-env: ${{ fromJson(needs.configure.outputs.ENVSET) }}
+env: {}
 
 jobs:
   configure:
