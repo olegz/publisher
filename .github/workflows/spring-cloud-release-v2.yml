@@ -2,7 +2,7 @@ name: Spring Cloud Release V2
 
 on:
   workflow_dispatch:
-env: {}
+env: matrix
   
 jobs:
   configure:
@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: configure
     strategy:
-      matrix: ${{ fromJson(needs.configure.outputs.env) }}
+      matrix: ${{ fromJson(needs.configure.outputs.matrix) }}
     steps:
      - run: echo "Boot Version:" ${{ matrix.boot-version }}
      - run: echo "Stream Version:" ${{ matrix.stream-version }}
