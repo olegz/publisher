@@ -29,8 +29,6 @@ jobs:
   spring-cloud-build:
     runs-on: ubuntu-latest
     needs: print_properties
-    strategy:
-      matrix: ${{ fromJson(needs.configure.outputs.matrix) }}
     steps:
       - uses: actions/checkout@v4
         with:
