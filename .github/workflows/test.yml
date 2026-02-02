@@ -3,7 +3,8 @@ name: Test ACTION
 on:
   workflow_dispatch:
 
-env: WORKFLOW_VARIABLE: "value"
+env: 
+  WORKFLOW_VARIABLE: "value"
 
 jobs:
   configure:
