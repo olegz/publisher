@@ -1,5 +1,5 @@
 
-name: Test ACTION
+name: Test ACTION from JSON
 
 on:
   workflow_dispatch:
