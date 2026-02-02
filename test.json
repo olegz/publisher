@@ -1,9 +1,9 @@
 {
     "include": [
     {
-        "boot-version": "4.0.0",
-        "stream-version": "5.0.0",
-        "cloud-version": "4.3.0"
+        "BOOT_VERSION": "4.0.0",
+        "CLOUD_VERSION": "5.0.0",
+        "STREAM_VERSION": "4.3.0"
     }
     ]
 }
