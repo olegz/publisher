@@ -33,19 +33,20 @@ jobs:
   #FUNCTION
   spring-cloud-function:
     needs: spring-cloud-build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          repository: spring-cloud/spring-cloud-function
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
-        with:
-          java-version: '17'
-          distribution: 'temurin'
-          cache: maven
-      - name: Maven build of spring-cloud-build
-        run: mvn -B package --file pom.xml
+    uses: olegz/test-one/.github/workflows/maven.yml@main
+    #runs-on: ubuntu-latest
+    #steps:
+    #  - uses: actions/checkout@v4
+    #    with:
+    #      repository: spring-cloud/spring-cloud-function
+     # - name: Set up JDK 17
+    #    uses: actions/setup-java@v4
+    #    with:
+     #     java-version: '17'
+     #     distribution: 'temurin'
+     #     cache: maven
+     # - name: Maven build of spring-cloud-build
+     #   run: mvn -B package --file pom.xml
   #STREAM      
   spring-cloud-stream:
     needs: spring-cloud-function
