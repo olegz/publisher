@@ -33,12 +33,7 @@ jobs:
   #FUNCTION
   spring-cloud-function:
     needs: spring-cloud-build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          repository: olegz/test-one
-      - uses: olegz/test-one/.github/workflows/maven.yml@main
+    uses: olegz/test-one/.github/workflows/maven.yml@main
     #runs-on: ubuntu-latest
     #steps:
     #  - uses: actions/checkout@v4
