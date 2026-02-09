@@ -60,7 +60,8 @@ jobs:
   #STREAM      
   spring-cloud-stream:
     needs: spring-cloud-function
-    uses: olegz/publisher/.github/workflows/spring-cloud-stream-build.yml@main
+    #uses: olegz/publisher/.github/workflows/spring-cloud-stream-build.yml@main
+    uses: olegz/test-one/.github/workflows/maven.yml@main
   #COMMONS
   spring-cloud-commons:
     needs: spring-cloud-build
