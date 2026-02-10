@@ -32,11 +32,13 @@ jobs:
         run: mvn -B package --file pom.xml
   #FUNCTION
   spring-cloud-function:
+  
     needs: spring-cloud-build
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout to repository
         uses: actions/checkout@v4
-      - name: Set matrix data
+      - name: Build with Maven
         uses: olegz/test-one/.github/workflows/maven.yml@main
     #runs-on: ubuntu-latest
     #steps:
