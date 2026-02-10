@@ -34,7 +34,7 @@ jobs:
   spring-cloud-function:
   
     needs: spring-cloud-build
-    uses: olegz/test-one/.github/workflows/blank.yml@main
+    uses: olegz/test-one/.github/workflows/maven.yml@main
     with:
           repository: olegz/test-one
   
