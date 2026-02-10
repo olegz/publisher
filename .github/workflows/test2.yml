@@ -21,7 +21,9 @@ jobs:
   print:
     needs: [ configure ]
     runs-on: ubuntu-latest
-    env: ${{ fromJson(needs.configure.outputs.ENVSETTINGS) }}
+    strategy:
+      ENVSETTINGS: ${{ fromJson(needs.configure.outputs.ENVSETTINGS) }}
+    #env: ${{ fromJson(needs.configure.outputs.ENVSETTINGS) }}
     steps:
       - name: Show the value
         run: |
