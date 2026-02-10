@@ -1,4 +1,4 @@
-name: Test ACTION
+name: Load From JSON and print
 
 on:
   workflow_dispatch:
