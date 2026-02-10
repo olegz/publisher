@@ -15,7 +15,7 @@ jobs:
      - id: setMyEnv
        run: echo 'MY_OBJECT=$(jq -c . < ./cloud.json)' >> $GITHUB_OUTPUT
      - id: hjk
-       run: echo ${{ENVSETTINGS}}
+       run: echo ${ENVSETTINGS}
        #run: |
           #echo 'MY_OBJECT={ "BOOT_VERSION": "4.0.0", "CLOUD_VERSION": "4.5.4" }' >> $GITHUB_OUTPUT
   print:
