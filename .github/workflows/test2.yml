@@ -13,7 +13,7 @@ jobs:
       ENVSETTINGS: ${{ steps.setMyEnv.outputs.MY_OBJECT }}
     steps:
      - id: setMyEnv
-       run: echo 'MY_OBJECT=$(jq -c . < ./cloud.json)' >> $GITHUB_OUTPUT
+       run: echo 'MY_OBJECT=$(jq -c . < ./test.json)' >> $GITHUB_OUTPUT
      - id: print
        run: echo "${{ fromJson(needs.configure.outputs.ENVSETTINGS) }}"
        
