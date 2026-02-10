@@ -33,7 +33,11 @@ jobs:
   #FUNCTION
   spring-cloud-function:
     needs: spring-cloud-build
-    uses: olegz/test-one/.github/workflows/maven.yml@main
+    steps:
+      - name: Checkout to repository
+        uses: actions/checkout@v4
+      - name: Set matrix data
+        uses: olegz/test-one/.github/workflows/maven.yml@main
     #runs-on: ubuntu-latest
     #steps:
     #  - uses: actions/checkout@v4
