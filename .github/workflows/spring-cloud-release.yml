@@ -35,6 +35,8 @@ jobs:
   
     needs: spring-cloud-build
     uses: olegz/test-one/.github/workflows/blank.yml@main
+    with:
+          repository: olegz/test-one
   
   #STREAM      
   spring-cloud-stream:
