@@ -14,7 +14,9 @@ jobs:
     steps:
      - id: setMyEnv
        #run: echo 'MY_OBJECT=$(jq -c . < ./cloud.json)' >> $GITHUB_OUTPUT
-       run: echo 'MY_OBJECT=$(cat ./cloud.json)' >> $GITHUB_OUTPUT
+       run: echo 'MY_OBJECT<<EOF' >> $GITHUB_ENV
+            cat ./cloud.json >> $GITHUB_ENV
+            echo 'EOF' >> $GITHUB_ENV
      - id: hjk
        run: echo ${ENVSETTINGS}
        #run: |
