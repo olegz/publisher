@@ -35,9 +35,6 @@ jobs:
   
     needs: spring-cloud-build
     uses: olegz/test-one/.github/workflows/maven.yml@main
-    with:
-          repository: olegz/test-one
-  
   #STREAM      
   spring-cloud-stream:
     needs: spring-cloud-function
