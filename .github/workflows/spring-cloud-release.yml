@@ -5,8 +5,7 @@ on:
       your-name:
         description: 'Your name'     
         required: true
-        default: Unknown
-      
+        default: Unknown   
 jobs:
   #BUILD
   spring-cloud-build:
